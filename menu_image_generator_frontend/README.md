@@ -11,3 +11,12 @@ flutter pub get
 flutter run
 
 If a tool reports "Could not determine project root directory for Flutter project", ensure it is pointed at the app directory above.
+
+CI/automation note:
+- Always change directory into the app folder before running flutter commands:
+  cd menu-image-generator-182975-182984/menu_image_generator_frontend
+  flutter pub get
+  flutter analyze
+  flutter test
+  flutter run
+- Running from repository root will cause the “project root” error.
