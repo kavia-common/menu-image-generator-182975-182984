@@ -1,0 +1,4 @@
+{
+    "command": "flutter build apk --release --target-platform android-x64",
+    "working_directory": "/home/kavia/workspace/code-generation/menu-image-generator-182975-182984/menu_image_generator_frontend"
+}

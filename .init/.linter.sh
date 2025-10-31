@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /home/kavia/workspace/code-generation/menu-image-generator-182975-182984/menu_image_generator_frontend
+flutter analyze
+
