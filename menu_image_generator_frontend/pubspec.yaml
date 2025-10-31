@@ -1,5 +1,5 @@
-name: root_flutter_wrapper
-description: Wrapper to point CI/analyzers to the actual Flutter app in a subdirectory.
+name: menu_image_generator_frontend
+description: Flutter mobile app to capture a menu image, OCR dish names, and generate images for each dish.
 publish_to: 'none'
 
 environment:
@@ -7,6 +7,15 @@ environment:
 
 dependencies:
   flutter:
+    sdk: flutter
+  http: ^1.2.2
+  flutter_dotenv: ^5.1.0
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
     sdk: flutter
 
 flutter:
