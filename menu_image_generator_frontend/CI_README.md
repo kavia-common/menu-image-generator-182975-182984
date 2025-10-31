@@ -1,4 +1,4 @@
-# CI Helper: Correct Working Directory
+# CI Helper: Run Flutter from correct app directory
 
 Always run Flutter commands from within the app directory:
 
@@ -8,11 +8,17 @@ flutter analyze
 flutter test
 flutter run
 
-If your tooling starts from the repository root, read flutter_project_path.yaml at the root:
-- flutter_project_relative_path: menu-image-generator-182975-182984/menu_image_generator_frontend
+If your tooling starts at the repository root, use the proxy helper:
+./run_flutter_ci.sh analyze
+./run_flutter_ci.sh test
+./run_flutter_ci.sh run
 
-Then cd into that folder before running any Flutter commands.
+If your tooling starts at the container root (menu-image-generator-182975-182984/), use:
+./run_flutter_path_proxy.sh analyze
+./run_flutter_path_proxy.sh test
+./run_flutter_path_proxy.sh run
 
-Troubleshooting:
-- Error: "Could not determine project root directory for Flutter project"
-  Fix: Ensure your working directory is menu-image-generator-182975-182984/menu_image_generator_frontend before invoking Flutter.
+Tip: Ensure scripts are executable in your environment:
+chmod +x run_flutter_ci.sh
+chmod +x menu-image-generator-182975-182984/run_flutter_ci.sh
+chmod +x menu-image-generator-182975-182984/run_flutter_path_proxy.sh

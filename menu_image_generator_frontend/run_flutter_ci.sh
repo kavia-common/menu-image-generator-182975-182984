@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-# Proxy helper to run Flutter commands from the correct app directory.
-# Usage examples:
-#   ./run_flutter_ci.sh pubget
-#   ./run_flutter_ci.sh analyze
-#   ./run_flutter_ci.sh test
-#   ./run_flutter_ci.sh run
-
+# Workspace-level helper: reads the path from flutter_project_path.yaml and proxies commands into the real Flutter app directory.
+# Usage:
+#   ./run_flutter_ci.sh pubget|analyze|test|run
 set -euo pipefail
+
+# Locate the app path from the root-level flutter_project_path.yaml
+if [ ! -f "flutter_project_path.yaml" ]; then
+  echo "flutter_project_path.yaml not found at repository root."
+  exit 1
+fi
 
 APP_REL_PATH=$(awk -F': ' '/flutter_project_relative_path/ {print $2}' flutter_project_path.yaml | tr -d '\r')
 if [ -z "${APP_REL_PATH:-}" ]; then
@@ -14,26 +16,10 @@ if [ -z "${APP_REL_PATH:-}" ]; then
   exit 1
 fi
 
-cd "$APP_REL_PATH"
+APP_SCRIPT="$APP_REL_PATH/run_flutter_ci.sh"
+if [ ! -f "$APP_SCRIPT" ]; then
+  echo "Could not locate app runner script at: $APP_SCRIPT"
+  exit 1
+fi
 
-case "${1:-}" in
-  pubget)
-    flutter pub get
-    ;;
-  analyze)
-    flutter pub get
-    flutter analyze
-    ;;
-  test)
-    flutter pub get
-    CI=true flutter test --no-pub
-    ;;
-  run)
-    flutter pub get
-    flutter run
-    ;;
-  *)
-    echo "Unknown command. Use one of: pubget | analyze | test | run"
-    exit 2
-    ;;
-esac
+exec "$APP_SCRIPT" "${1:-}"
