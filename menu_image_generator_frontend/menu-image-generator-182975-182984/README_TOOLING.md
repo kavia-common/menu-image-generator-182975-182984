@@ -1,6 +1,18 @@
-# Tooling Hint
+# Tooling Path Hint
 
-The Flutter app lives at:
-menu-image-generator-182975-182984/menu_image_generator_frontend
+The Flutter app is not at the repository root.
 
-Tooling starting at repository root should change directory into this path before running Flutter commands.
+Flutter app path:
+- menu-image-generator-182975-182984/menu_image_generator_frontend
+
+Tools starting at the repository or workspace root should read flutter_project_path.yaml at:
+- repository root: flutter_project_path.yaml
+- container root: menu-image-generator-182975-182984/flutter_project_path.yaml
+
+Then change directory into that folder before running Flutter commands:
+
+cd menu-image-generator-182975-182984/menu_image_generator_frontend
+flutter pub get
+flutter analyze
+flutter test
+flutter run
