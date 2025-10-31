@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Camera permission for capturing menu photos -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- Android 13+ images read permission for gallery access -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!-- Legacy storage read permission for pre-Android 13 devices -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <application
         android:label="menu_image_generator_frontend"
         android:name="${applicationName}"

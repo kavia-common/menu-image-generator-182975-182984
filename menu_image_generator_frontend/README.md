@@ -1,29 +1,13 @@
-# menu_image_generator_frontend
+# Workspace: code-generation
 
-Flutter app that captures a menu image, extracts text using OpenAI Vision, generates dish images, and displays them.
+This workspace contains one Flutter app:
 
-## Setup
+- menu-image-generator-182975-182984/menu_image_generator_frontend
 
-1) Install Flutter and platform toolchains.
-2) Install dependencies:
-   flutter pub get
+Run Flutter commands from within the app directory:
 
-3) Environment variables:
-   - Copy `.env.example` to `.env`
-   - Edit `.env` and set your OpenAI API key:
+cd menu-image-generator-182975-182984/menu_image_generator_frontend
+flutter pub get
+flutter run
 
-   OPENAI_API_KEY=sk-...
-
-   The app uses `flutter_dotenv` to load this at startup. Do not commit real secrets.
-
-4) Run the app:
-   flutter run
-
-If you change `.env`, restart the running app so variables reload.
-
-## Notes
-
-- The app no longer asks end users to input an API key. Keys are read from `.env`.
-- Both image-to-text and image generation calls automatically include the Authorization header using the env key.
-- If OPENAI_API_KEY is missing, the app shows a developer-friendly message; no input field will appear.
-- Theme: Electric Orange — dark background with orange accents for a bold look.
+If a tool reports "Could not determine project root directory for Flutter project", ensure it is pointed at the app directory above.
