@@ -1,16 +1,29 @@
 # menu_image_generator_frontend
 
-A new Flutter project.
+Flutter app that captures a menu image, extracts text using OpenAI Vision, generates dish images, and displays them.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+1) Install Flutter and platform toolchains.
+2) Install dependencies:
+   flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
+3) Environment variables:
+   - Copy `.env.example` to `.env`
+   - Edit `.env` and set your OpenAI API key:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   OPENAI_API_KEY=sk-...
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   The app uses `flutter_dotenv` to load this at startup. Do not commit real secrets.
+
+4) Run the app:
+   flutter run
+
+If you change `.env`, restart the running app so variables reload.
+
+## Notes
+
+- The app no longer asks end users to input an API key. Keys are read from `.env`.
+- Both image-to-text and image generation calls automatically include the Authorization header using the env key.
+- If OPENAI_API_KEY is missing, the app shows a developer-friendly message; no input field will appear.
+- Theme: Electric Orange — dark background with orange accents for a bold look.

@@ -1,0 +1,1 @@
+ /home/kavia/workspace/code-generation/menu-image-generator-182975-182984/menu_image_generator_frontend/.dart_tool/flutter_build/1c870ba0233d6192943c10a3193904da/native_assets.json: 
