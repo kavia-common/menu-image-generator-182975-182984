@@ -1,4 +1,4 @@
-# This repository hosts a Flutter app at a non-root path.
-# Tools starting at the workspace or container root can read this file to locate the actual Flutter project folder.
+# This container hosts a Flutter app at a non-root path.
+# Tools starting at the container root can read this file to locate the actual Flutter project folder.
 
 flutter_project_relative_path: menu-image-generator-182975-182984/menu_image_generator_frontend
