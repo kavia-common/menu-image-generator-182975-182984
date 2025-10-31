@@ -1,0 +1,3 @@
+# This file helps CI tooling detect the Flutter project root (fallback path).
+# Path is relative to this file's directory.
+flutter_project_path: ../menu_image_generator_frontend
