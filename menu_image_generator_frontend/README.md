@@ -20,3 +20,7 @@ CI/automation note:
   flutter test
   flutter run
 - Running from repository root will cause the “project root” error.
+- Alternative: from repo root, use the helper script which reads flutter_project_path.yaml and cds for you:
+  ./menu-image-generator-182975-182984/menu_image_generator_frontend/run_flutter_ci.sh analyze
+  ./menu-image-generator-182975-182984/menu_image_generator_frontend/run_flutter_ci.sh test
+  ./menu-image-generator-182975-182984/menu_image_generator_frontend/run_flutter_ci.sh run

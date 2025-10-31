@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Helper to ensure Flutter commands run from the actual app directory.
+# Proxy helper to run Flutter commands from the correct app directory.
 # Usage examples:
 #   ./run_flutter_ci.sh pubget
 #   ./run_flutter_ci.sh analyze
@@ -8,7 +8,6 @@
 
 set -euo pipefail
 
-# Find the flutter project path from the repository-level yaml
 APP_REL_PATH=$(awk -F': ' '/flutter_project_relative_path/ {print $2}' flutter_project_path.yaml | tr -d '\r')
 if [ -z "${APP_REL_PATH:-}" ]; then
   echo "Could not read flutter_project_relative_path from flutter_project_path.yaml"
